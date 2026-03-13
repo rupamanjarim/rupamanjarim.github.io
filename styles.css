@@ -1,0 +1,594 @@
+/* =========================================================
+   ROOT + RESET
+========================================================= */
+
+:root{
+  --accent:#0f172a;
+  --muted:#475569;
+  --line:#e5e7eb;
+  --bg:#ffffff;
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0;
+  padding:0;
+  font-family: ui-sans-serif, system-ui, -apple-system,
+               Segoe UI, Roboto, Helvetica, Arial;
+  color:var(--accent);
+  background:var(--bg);
+}
+
+/* =========================================================
+   LEFT PANEL CONTENT
+========================================================= */
+
+.container{
+    display:block;
+}
+.left-card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  width:100%;
+  height:100%;          /* ⭐ important */
+}
+
+.left-photo{
+  width:100%;
+  max-width:220px;
+  height:auto;
+  border-radius:10px;
+  object-fit:cover;
+  border:3px solid rgba(255,255,255,.9);
+  box-shadow:0 10px 22px rgba(0,0,0,.12);
+  display:block;
+  margin:0 auto;
+}
+
+.left-contact{
+  font-size:14px;
+  color:#0f172a;
+  line-height:1.5;
+}
+
+.left-person{
+  display:block;
+  text-decoration:none;
+  color:#0f172a;
+}
+
+/* ⭐⭐⭐ THIS WAS THE MISSING PIECE ⭐⭐⭐ */
+.left-links{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  margin-top:6px;
+}
+
+.left-links a{
+  display:inline-block;
+  color:#0f172a;
+  text-decoration:none;
+  border-bottom:1px dashed rgba(15,23,42,.45);
+}
+
+.left-links a:hover{
+  border-bottom-style:solid;
+}
+
+/* =========================================================
+   (rest of your CSS unchanged)
+========================================================= */
+
+.two-col-body{
+  display:flex;
+  min-height:calc(100vh - 64px);
+  overflow-x:hidden;
+}
+
+.left-strip{
+  width:260px;
+  min-width:260px;
+  background:#AEEBEB;
+  border-right:1px solid rgba(15,23,42,0.18);
+  padding:28px 18px;
+  display:flex;
+  flex-direction:column;
+}
+
+.right-panel{
+  flex:1;
+  background:#ffffff;
+}
+.left-logo{
+  margin-top:auto;      /* ⭐ pushes logo to bottom */
+  padding-top:20px;
+  text-align:center;
+}
+
+.left-logo img{
+  width:100%;
+  max-width:280px;      /* adjust if you want */
+  height:auto;
+  opacity:1;
+}
+/* =========================================
+   Fixed gap between links and first section
+   (≈ 1 cm = 38px on screens)
+========================================= */
+
+.left-contact + .left-section{
+  margin-top:38px;   /* ≈ 1 cm */
+}
+/* =========================================
+   Right-only navigation layout
+========================================= */
+
+.nav-right-only{
+  justify-content:flex-end;
+}
+/* =========================================
+   RIGHT PANEL HEADER (improved)
+========================================= */
+
+.right-header{
+  width:100%;
+  height:1in;
+  background:#0f172a;
+  display:flex;
+  align-items:center;
+}
+
+/* inner layout gives the “wider” feel */
+.right-header-inner{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 36px;   /* ⭐ increased from before → feels wider */
+}
+/* =========================================
+   Title inside dark blue header
+========================================= */
+
+.right-header-title{
+  color:#ffffff;        /* ⭐ makes it visible */
+  font-weight:800;
+  font-size:22px;
+  letter-spacing:.2px;
+  line-height:1.2;
+  text-align:right;
+}
+/* =========================================
+   Title BELOW the blue rectangle
+========================================= */
+
+.right-title-wrap{
+  padding:12px 26px;
+  border-bottom:1px solid rgba(15,23,42,0.08);
+}
+
+.right-title{
+  margin:0;
+  font-size:44px;       /* ⭐ bigger */
+  font-weight:900;
+  line-height:1.08;
+  letter-spacing:-0.5px;
+  color:#0f172a;
+  text-align:left;      /* flush left */
+}
+/* =========================================
+   Right-side navigation placement
+========================================= */
+
+.right-nav{
+  border-bottom:1px solid var(--line);
+  background:#ffffff;
+}
+
+.nav-right-only{
+  justify-content:flex-end;
+}
+/* nav links when inside blue header */
+
+.right-header .nav-links{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.right-header .nav-links a{
+  color:#e2e8f0;
+  text-decoration:none;
+  font-weight:600;
+  padding:6px 8px;
+  border-radius:8px;
+}
+
+.right-header .nav-links a:hover{
+  background:rgba(255,255,255,0.12);
+  color:#ffffff;
+}
+/* =========================================
+   Right panel — force left alignment
+========================================= */
+
+.right-panel{
+  text-align:left;
+}
+
+/* ensure main content is left-aligned */
+.home-main{
+  text-align:left;
+}
+
+/* titles and paragraphs explicitly left */
+.home-main h1,
+.home-main h2,
+.home-main h3,
+.home-main p{
+  text-align:left;
+}
+
+.right-header .nav-links a.active{
+  background:rgba(255,255,255,0.18);
+  color:#ffffff;
+}
+/* =========================================
+   Shift ONLY right-panel content (not header)
+========================================= */
+
+.home-main,
+.right-title-wrap,
+.right-nav{
+  padding-left: calc(22px + 1cm);
+}
+/* =========================================
+   Exact 1 cm gap before Research Interests
+========================================= */
+
+.inst-line + .ri-gap{
+  height:1cm;
+}
+/* =========================================
+   Research slideshow box
+========================================= */
+
+.research-box{
+  margin-top:12px;
+  width:100%;
+  max-width:1100px;
+  min-width:0;
+  height:480px;
+  display:flex;
+  flex:1 1 700px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #e5e7eb;
+  box-shadow:0 10px 28px rgba(0,0,0,.10);
+}
+.research-box{
+  position:relative;
+  z-index:2;
+  flex:1 1 auto;
+  min-width:0;
+}
+.ri-text{
+  margin-bottom:10px;
+  text-align:justify;
+  line-height:1.6;
+}
+/* slideshow area */
+
+.slideshow{
+  flex:1;
+  background:#000;
+}
+
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .6s ease;
+}
+
+.slide.active{
+  opacity:1;
+}
+
+/* vertical button panel */
+
+.slide-panel{
+  width:160px;
+  background:#0f172a;
+  display:flex;
+  flex-direction:column;
+}
+
+.slide-panel button{
+  flex:1;
+  border:none;
+  background:transparent;
+  color:white;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.slide-panel button:hover{
+  background:rgba(255,255,255,.12);
+}
+/* =========================================
+   Lab members layout
+========================================= */
+
+.members{
+  display:flex;
+  flex-direction:column;
+  gap:42px;
+}
+
+.member{
+  display:grid;
+  grid-template-columns: 1fr 3fr 2fr;
+  gap:28px;
+  align-items:start;
+}
+
+.member-photo img{
+  width:100%;
+  height:auto;          /* keeps natural proportions */
+  object-fit:contain;   /* ensures full image is visible */
+  border-radius:10px;
+  border:1px solid #e5e7eb;
+  display:block;
+}
+
+.member-info p{
+  text-align:justify;
+}
+
+.member-role{
+  font-weight:600;
+  color:#475569;
+  margin-bottom:12px;
+}
+.lab-quote{
+  margin-top:30px;
+  font-size:20px;
+  color:#475569;
+}
+.member-info{
+  border-left:2px solid #e5e7eb;
+  border-right:2px solid #e5e7eb;
+  padding:0 22px;
+}
+
+.research-row{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  gap:30px;
+  flex-wrap:nowrap;
+  overflow:hidden;
+}
+
+.hbn-logo-home{
+  position:absolute;
+  right:20px;
+  bottom:-120px;
+  z-index:1;
+  pointer-events:none;
+}
+.hbn-logo-home img{
+  display:block;
+  width:520px;
+  height:auto;
+}
+/* =========================================
+   Research page two-column layout
+========================================= */
+
+.research-main{
+  padding: 24px calc(22px + 1cm) 40px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.research-block{
+  display:grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap:32px;
+  align-items:start;
+  padding:12px 0;
+  border-top:1px solid #e5e7eb;
+}
+
+.research-block:first-child{
+  border-top:none;
+  padding-top:8px;
+}
+
+.research-text h2{
+  margin-top:0;
+  margin-bottom:14px;
+  font-size:28px;
+  line-height:1.15;
+}
+
+.research-text p{
+  margin:0 0 14px 0;
+  line-height:1.65;
+  text-align:justify;
+}
+
+.research-figure img{
+  width:80%;
+  height:auto;
+  display:block;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  box-shadow:0 8px 22px rgba(0,0,0,.08);
+}
+.small-figure{
+  width:60%;
+  display:block;
+  margin:auto;
+}
+
+.small-figure img{
+  width:60%;
+  height:auto;
+}
+.dual-figure{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+.dual-figure img{
+  width:50%;
+  height:auto;
+  object-fit:contain;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  box-shadow:0 8px 22px rgba(0,0,0,.08);
+}
+.transparent-figure{
+  width:100%;
+  height:auto;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+}
+.transparent-figure img{
+  width:80%;
+  height:auto;
+  object-fit:contain;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  display:block;
+  margin:auto;
+}
+.nd-publications{
+  margin-top:1cm;
+  margin-bottom:4px;
+}
+/* responsive fallback */
+@media (max-width: 1000px){
+  .research-block{
+    grid-template-columns: 1fr;
+  }
+}
+.slide-link{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+  border-bottom:1px solid rgba(255,255,255,.15);
+  text-decoration:none;
+  color:white;
+  font-size:15px;
+  font-weight:600;
+  text-align:center;
+  background:transparent;
+}
+
+.slide-link:hover{
+  background:rgba(255,255,255,.12);
+}
+.research-box{
+  display:flex;
+  width:100%;
+  max-width:1100px;
+  height:480px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #e5e7eb;
+  box-shadow:0 10px 28px rgba(0,0,0,.10);
+}
+
+.slideshow{
+  flex:1;
+  position:relative;
+  overflow:hidden;
+  background:black;
+  border:6px solid black;
+}
+.slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.slide.active{
+  opacity:1;
+}
+
+.slide-panel{
+  width:220px;
+  flex:0 0 220px;
+  display:flex;
+  flex-direction:column;
+  background:#0f172a;
+}
+
+.slide-link{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.slide-link:hover{
+  background:rgba(255,255,255,.12);
+}
+.itx-logo{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  width:240px;
+  z-index:10;
+}
+.left-strip{
+  position:relative;
+  width:260px;
+  min-width:260px;
+  min-height:100vh;
+  background:#AEEBEB;
+  border-right:1px solid rgba(15,23,42,0.18);
+  padding:28px 18px;
+  display:flex;
+  flex-direction:column;
+}
+.member-fun img{
+  width:40%;
+  height:auto;
+  display:block;
+  margin:auto;
+  border-radius:10px;
+}
+.member-fun1 img{
+  width:70%;
+  height:auto;
+  display:block;
+  margin:auto;
+  border-radius:10px;
+}
